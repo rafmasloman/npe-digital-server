@@ -1,0 +1,88 @@
+<table id="" class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>Judul Project</th>
+      <th>Tahun</th>
+      <th>Deskripsi</th>
+      <th>Client</th>
+      <th>Kategori</th>
+      <th>Gambar Project</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% projects.forEach((project, i) => { %>
+    <tr>
+      <td><%= i + 1 %></td>
+      <td><%= project.title %></td>
+      <td><%= project.year %></td>
+      <td><%= project.description %></td>
+      <td><%= project.client %></td>
+      <td><%= project.category.name %></td>
+      <td>
+        <img
+          src="/uploads/projects/<%= project.thumbnail %>"
+          style="width: 250px; height: 250px"
+          class="img-rounded"
+        />
+      </td>
+      <td>
+        <form
+          action="/projects/delete/<%= project.id %>?_method=DELETE"
+          method="post"
+        >
+          <a
+            href="/projects/edit/<%= project.id %>"
+            class="btn btn-warning mr-3"
+            >Edit</a
+          >
+          <button class="btn btn-danger">Delete</button>
+        </form>
+      </td>
+    </tr>
+    <% }); %>
+    <!-- <tr>
+          <td>Trident</td>
+          <td>Internet Explorer 4.0</td>
+          <td>Win 95+</td>
+          <td>4</td>
+          <td>X</td>
+        </tr> -->
+    <!-- <tr>
+          <td>Trident</td>
+          <td>Internet Explorer 5.0</td>
+          <td>Win 95+</td>
+          <td>5</td>
+          <td>C</td>
+        </tr>
+        <tr>
+          <td>Trident</td>
+          <td>Internet Explorer 5.5</td>
+          <td>Win 95+</td>
+          <td>5.5</td>
+          <td>A</td>
+        </tr>
+        <tr>
+          <td>Trident</td>
+          <td>Internet Explorer 6</td>
+          <td>Win 98+</td>
+          <td>6</td>
+          <td>A</td>
+        </tr>
+        <tr>
+          <td>Trident</td>
+          <td>Internet Explorer 7</td>
+          <td>Win XP SP2+</td>
+          <td>7</td>
+          <td>A</td>
+        </tr> -->
+  </tbody>
+  <!-- <tfoot>
+      <tr>
+        <th>No.</th>
+        <th>Nama</th>
+        <th>Action Button</th>
+      </tr>
+    </tfoot> -->
+</table>

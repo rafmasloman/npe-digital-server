@@ -1,0 +1,80 @@
+<table id="" class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>Nama</th>
+      <th>Role</th>
+      <th>Profile Picture</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% teams.forEach((team, i) => { %>
+    <tr>
+      <td><%= i + 1 %></td>
+      <td><%= team.name %></td>
+      <td><%= team.role.name %></td>
+      <td>
+        <img
+          src="/uploads/teams/<%= team.image %>"
+          class="img-fluid img-rounded"
+          style="width: 150px; height: 150px"
+        />
+      </td>
+      <td>
+        <form
+          action="/teams/delete/<%= team.id %>?_method=DELETE"
+          method="post"
+        >
+          <a href="/teams/edit/<%= team.id %>" class="btn btn-warning mr-3"
+            >Edit</a
+          >
+          <button class="btn btn-danger">Delete</button>
+        </form>
+      </td>
+    </tr>
+    <% }); %>
+    <!-- <tr>
+          <td>Trident</td>
+          <td>Internet Explorer 4.0</td>
+          <td>Win 95+</td>
+          <td>4</td>
+          <td>X</td>
+        </tr> -->
+    <!-- <tr>
+          <td>Trident</td>
+          <td>Internet Explorer 5.0</td>
+          <td>Win 95+</td>
+          <td>5</td>
+          <td>C</td>
+        </tr>
+        <tr>
+          <td>Trident</td>
+          <td>Internet Explorer 5.5</td>
+          <td>Win 95+</td>
+          <td>5.5</td>
+          <td>A</td>
+        </tr>
+        <tr>
+          <td>Trident</td>
+          <td>Internet Explorer 6</td>
+          <td>Win 98+</td>
+          <td>6</td>
+          <td>A</td>
+        </tr>
+        <tr>
+          <td>Trident</td>
+          <td>Internet Explorer 7</td>
+          <td>Win XP SP2+</td>
+          <td>7</td>
+          <td>A</td>
+        </tr> -->
+  </tbody>
+  <!-- <tfoot>
+      <tr>
+        <th>No.</th>
+        <th>Nama</th>
+        <th>Action Button</th>
+      </tr>
+    </tfoot> -->
+</table>

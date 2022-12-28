@@ -15,6 +15,10 @@ const roleRouter = require('./app/role/routes');
 const teamRouter = require('./app/team/routes');
 const testimonialRouter = require('./app/testimoni/routes');
 
+// todo import api router
+const clientRouter = require('./app/api/client/routes');
+
+const urlAPI = require('./app/api/config');
 var app = express();
 
 // view engine setup
@@ -48,6 +52,10 @@ app.use('/category', categoryRouter);
 app.use('/role', roleRouter);
 app.use('/teams', teamRouter);
 app.use('/testimoni', testimonialRouter);
+
+// todo api
+const URL = '/api/v1';
+app.use(`${URL}/client`, clientRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -7,15 +7,15 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Teams Manage</h1>
+          <h1>Projects Manage</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right mr-3">
             <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
             <li class="breadcrumb-item">
-              <a href="/projects">Teams</a>
+              <a href="/projects">Projects</a>
             </li>
-            <li class="breadcrumb-item">Tambah Teams</li>
+            <li class="breadcrumb-item">Edit Project</li>
           </ol>
         </div>
       </div>
@@ -38,16 +38,54 @@
             <form action="/projects/edit/<%= project.id %>?_method=PUT" method="post" enctype="multipart/form-data">
               <div class="card-body">
                 <div class="form-group">
-                  <label for="name">Judul Project</label>
+                  <label for="title">Judul Project</label>
                   <input
                     type="text"
-                    name="name"
+                    name="title"
                     value="<%= project.title %>"
                     class="form-control"
-                    id="name"
+                    id="title"
                     placeholder="Masukkan Judul Projects"
                   />
                 </div>
+                <div class="form-group">
+                    <label for="year">Tahun Project dibuat</label>
+                    <input
+                      type="number"
+                      name="year"
+                      value="<%= project.year %>"
+                      class="form-control"
+                      id="year"
+                      placeholder="Masukkan Tahun Projects"
+                    />
+                  </div>
+
+
+
+                  <div class="form-group">
+                    <label for="description">Deskripsi Project</label>
+                    <input
+                      type="text"
+                      name="description"
+                      value="<%= project.description %>"
+                      class="form-control"
+                      id="description"
+                      placeholder="Masukkan Deskripsi Project"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="urlProject">URL Project</label>
+                    <input
+                      type="text"
+                      name="urlProject"
+                      value="<%= project.urlProject %>"
+                      class="form-control"
+                      id="urlProject"
+                      placeholder="Masukkan URL Project"
+                    />
+                  </div>
+
                 <div class="form-group">
                   <label>Category</label>
                   <select

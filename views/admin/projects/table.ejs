@@ -7,6 +7,7 @@
       <th>Deskripsi</th>
       <th>Client</th>
       <th>Kategori</th>
+      <th>URL</th>
       <th>Gambar Project</th>
       <th>Action</th>
     </tr>
@@ -20,6 +21,7 @@
       <td><%= project.description %></td>
       <td><%= project.client %></td>
       <td><%= project.category.name %></td>
+      <td><a href="<%= project.urlProject %>"><%= project.urlProject %></a></td>
       <td>
         <img
           src="/uploads/projects/<%= project.thumbnail %>"

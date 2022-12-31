@@ -3,6 +3,7 @@ const Testimoni = require('../../testimoni/model');
 const Category = require('../../category/model');
 const Team = require('../../team/model');
 const nodemailer = require('nodemailer');
+const testimoni = require('../../testimoni/model');
 
 const landingPage = async (req, res) => {
   try {
@@ -122,6 +123,17 @@ const sendMessageEmail = async (req, res) => {
   }
 };
 
+const testimonials = async (req, res) => {
+  try {
+    const testimonials = await testimoni.find();
+    console.log(testimonials);
+    res.json({
+      testimonials,
+      status: true,
+    });
+  } catch (error) {}
+};
+
 module.exports = {
   landingPage,
   projectPage,
@@ -130,4 +142,5 @@ module.exports = {
   websiteService,
   projectDetail,
   sendMessageEmail,
+  testimonials,
 };

@@ -9,14 +9,16 @@ const {
   teamsPage,
   projectDetail,
   sendMessageEmail,
+  testimonials,
 } = require('./controller');
 
 router.get('/', landingPage);
 router.get('/projects', projectPage);
 router.get('/teams', teamsPage);
+router.get('/testimonials', testimonials);
 router.get('/services/mobile', mobileService);
 router.get('/services/website', websiteService);
-router.get('/project/:id/detail', projectDetail);
+router.get('/project/detail/:id', projectDetail);
 
-router.post('/contact', sendMessageEmail);
+// router.post('/contact', sendMessageEmail);
 module.exports = router;

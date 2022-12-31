@@ -16,7 +16,7 @@ router.get('/projects', projectPage);
 router.get('/teams', teamsPage);
 router.get('/services/mobile', mobileService);
 router.get('/services/website', websiteService);
-router.get('/projects/:id', projectDetail);
+router.get('/project/:id/detail', projectDetail);
 
 router.post('/contact', sendMessageEmail);
 module.exports = router;

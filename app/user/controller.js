@@ -47,24 +47,35 @@ const registerUser = async (req, res) => {
 const actionLogin = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const admin = await User.findOne({ email });
-    console.log(req.session.users);
-    if (admin) {
-      const checkPassword = bcrypt.compare(password, admin.password);
-      if (checkPassword) {
+    console.log(`${email} dan ${password}`);
+    if (email === 'npedigital@gmail.com') {
+      if (password === '12345678') {
         req.session.user = {
-          id: admin._id,
-          email: admin.email,
-          password: admin.password,
-          name: admin.name,
+          email,
+          password,
+          name: 'npeadmin',
         };
         res.redirect('/dashboard');
-      } else {
-        console.log('password salah');
       }
-    } else {
-      throw Error;
     }
+    // const admin = await User.findOne({ email });
+    // console.log(req.session.users);
+    // if (admin) {
+    //   const checkPassword = bcrypt.compare(password, admin.password);
+    //   if (checkPassword) {
+    //     req.session.user = {
+    //       id: admin._id,
+    //       email: admin.email,
+    //       password: admin.password,
+    //       name: admin.name,
+    //     };
+    //     res.redirect('/dashboard');
+    //   } else {
+    //     console.log('password salah');
+    //   }
+    // } else {
+    //   throw Error;
+    // }
     // if (email) {
     //   if (password === 'npedigital') {
     //     res.redirect('/dashboard');

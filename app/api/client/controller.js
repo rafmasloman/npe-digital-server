@@ -134,10 +134,12 @@ const testimonials = async (req, res) => {
   } catch (error) {}
 };
 
-const registerAdmin = async (req, res) => {
-  try {
-  } catch (error) {}
-};
+// const registerAdmin = async (req, res) => {
+//   try {
+//     const user = await
+//   } catch (error) {}
+// };
+
 module.exports = {
   landingPage,
   projectPage,

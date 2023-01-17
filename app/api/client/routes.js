@@ -10,6 +10,8 @@ const {
   projectDetail,
   sendMessageEmail,
   testimonials,
+  service,
+  servicePage,
 } = require('./controller');
 
 router.get('/', landingPage);
@@ -19,6 +21,7 @@ router.get('/testimonials', testimonials);
 router.get('/services/mobile', mobileService);
 router.get('/services/website', websiteService);
 router.get('/project/detail/:id', projectDetail);
-
+router.get('/services', service);
+router.get('/service/:name', servicePage);
 // router.post('/contact', sendMessageEmail);
 module.exports = router;

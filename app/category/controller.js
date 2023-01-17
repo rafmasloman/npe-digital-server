@@ -9,9 +9,11 @@ const category = async (req, res) => {
       message,
       status,
     };
+    const categories = await getAllCategory();
+    console.log(categories);
     res.render('admin/categories/view_categories', {
       categories: await getAllCategory(),
-      alert,
+
       name,
     });
   } catch (err) {
@@ -45,11 +47,12 @@ const viewEdit = async (req, res) => {
 
 const actionCategory = async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name, description } = req.body;
+    console.log(description);
     req.flash('alertMessage', 'Berhasil Menambah data');
     req.flash('alertStatus', 'success');
 
-    let category = await CategoryModel({ name });
+    let category = await CategoryModel({ name, description });
 
     await category.save();
 
@@ -64,12 +67,15 @@ const actionCategory = async (req, res) => {
 const editCategory = async (req, res) => {
   try {
     const { id } = req.params;
-    const { name } = req.body;
+    const { name, description } = req.body;
 
     req.flash('alertMessage', 'Berhasil Edit Data');
     req.flash('alertStatus', 'success');
 
-    let category = await CategoryModel.findOneAndUpdate({ _id: id }, { name });
+    let category = await CategoryModel.findOneAndUpdate(
+      { _id: id },
+      { name, description },
+    );
 
     res.redirect('/category');
   } catch (error) {

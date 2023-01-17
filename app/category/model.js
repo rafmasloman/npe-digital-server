@@ -3,6 +3,7 @@ const { Schema } = mongoose;
 
 let categorySchema = new Schema({
   name: String,
+  description: String,
   //   require: [true, 'nama kategori harus ada'],
 });
 

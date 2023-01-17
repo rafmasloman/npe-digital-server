@@ -11,6 +11,7 @@ const usersRouter = require('./app/user/routes');
 const dashboardRouter = require('./app/dashboard/routes');
 const projectRouter = require('./app/projects/routes');
 const categoryRouter = require('./app/category/routes');
+const serviceRouter = require('./app/service/routes');
 const roleRouter = require('./app/role/routes');
 const teamRouter = require('./app/team/routes');
 const testimonialRouter = require('./app/testimoni/routes');
@@ -55,6 +56,7 @@ app.use('/category', categoryRouter);
 app.use('/role', roleRouter);
 app.use('/teams', teamRouter);
 app.use('/testimoni', testimonialRouter);
+app.use('/services', serviceRouter);
 
 // todo api
 const URL = '/api/v1';

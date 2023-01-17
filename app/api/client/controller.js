@@ -1,6 +1,7 @@
 const Project = require('../../projects/model');
 const Testimoni = require('../../testimoni/model');
 const Category = require('../../category/model');
+const Services = require('../../service/model');
 const Team = require('../../team/model');
 const nodemailer = require('nodemailer');
 const testimoni = require('../../testimoni/model');
@@ -19,6 +20,43 @@ const landingPage = async (req, res) => {
   } catch (error) {
     res.json({
       message: error,
+    });
+  }
+};
+
+const service = async (req, res) => {
+  try {
+    const service = await Services.find();
+    res.json({
+      service,
+      status: true,
+    });
+  } catch (error) {
+    res.json({
+      message: error,
+      status: false,
+    });
+  }
+};
+
+const servicePage = async (req, res) => {
+  try {
+    const { name } = req.params;
+    const service = await Services.findOne({
+      name: { $regex: new RegExp(name, 'i') },
+    });
+    const project = await Project.find().populate('category');
+    const getService = project.filter((result) => {
+      return result.category.name.toLowerCase().includes(name.toLowerCase());
+    });
+    res.json({
+      service,
+      project: getService,
+    });
+  } catch (error) {
+    res.json({
+      message: error,
+      status: false,
     });
   }
 };
@@ -144,6 +182,8 @@ module.exports = {
   landingPage,
   projectPage,
   teamsPage,
+  service,
+  servicePage,
   mobileService,
   websiteService,
   projectDetail,

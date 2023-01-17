@@ -7,15 +7,15 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Project Manage</h1>
+          <h1>Service Manage</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right mr-3">
             <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
             <li class="breadcrumb-item">
-              <a href="/category">Kategori</a>
+              <a href="/services">Services</a>
             </li>
-            <li class="breadcrumb-item">Tambah Kategori</li>
+            <li class="breadcrumb-item">Edit Service</li>
           </ol>
         </div>
       </div>
@@ -35,36 +35,64 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="/category/create" method="post" id="categoryForm">
+            <form
+              action="/services/edit/<%= service.id %>?_method=PUT"
+              method="post"
+              enctype="multipart/form-data"
+            >
               <div class="card-body">
                 <div class="form-group">
-                  <label for="name">Nama Kategori</label>
+                  <label for="name">Nama Service</label>
                   <input
                     type="text"
                     name="name"
+                    value="<%= service.name %>"
                     class="form-control"
                     id="name"
-                    placeholder="Masukkan Nama Kategori"
+                    placeholder="Masukkan Nama Services"
                   />
                 </div>
                 <div class="form-group">
-                  <label for="description">Deskripsi kategori</label>
-                  <!-- <input
+                  <label for="description">Deskripsi Service</label>
+                  <input
                     type="text"
                     name="description"
+                    value="<%= service.description %>"
                     class="form-control"
                     id="description"
-                    placeholder="Masukkan Deskripsi dari Kategori"
-                  /> -->
-                  <textarea
+                    placeholder="Masukkan Deskripsi Services"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="description"
+                    >Deskripsi pada Detail Page Service</label
+                  >
+                  <input
+                    type="text"
+                    name="detailDescription"
+                    value="<%= service.detailDescription %>"
                     class="form-control"
-                    form="categoryForm"
-                    placeholder="Masukkan Deskripsi dari Kategori"
-                    cols="5"
-                    rows="5"
-                    name="description"
-                    id="description"
-                  ></textarea>
+                    id="detailDescription"
+                    placeholder="Masukkan Detail Deskripsi untuk Page Servie"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="image">Gambar</label>
+                  <input
+                    type="file"
+                    name="image"
+                    class="form-control"
+                    id="image"
+                    placeholder="Masukan gambar"
+                  />
+                  <br />
+                  <img
+                    id="perview"
+                    alt="test"
+                    src="http://localhost:8000/uploads/services/<%= service.image %>"
+                    class="img-rounded"
+                    style="width: 150px; height: 150px"
+                  />
                 </div>
               </div>
               <!-- /.card-body -->

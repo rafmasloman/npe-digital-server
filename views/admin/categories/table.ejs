@@ -3,6 +3,7 @@
     <tr>
       <th>No.</th>
       <th>Nama</th>
+      <th>Deskripsi</th>
       <th>Action Button</th>
     </tr>
   </thead>
@@ -11,6 +12,7 @@
     <tr>
       <td><%= i + 1 %></td>
       <td><%= category.name %></td>
+      <td><%= category.description %></td>
       <td>
         <form
           action="/category/delete/<%= category.id %>?_method=DELETE"

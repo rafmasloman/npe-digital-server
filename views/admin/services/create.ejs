@@ -6,13 +6,13 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Teams</h1>
+          <h1>NPE Digital Service</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item"><a href="/teams">Teams Member</a></li>
-            <li class="breadcrumb-item active">Tambah Team Member</li>
+            <li class="breadcrumb-item"><a href="/services">Services</a></li>
+            <li class="breadcrumb-item active">Tambah Service</li>
           </ol>
         </div>
       </div>
@@ -27,40 +27,49 @@
         <div class="col-12">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Form manajemen team member</h3>
+              <h3 class="card-title">Form service</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
             <form
-              action="/teams/create"
+              action="/services/create"
               method="post"
               enctype="multipart/form-data"
             >
               <div class="card-body">
                 <div class="form-group">
-                  <label for="name"> Nama Member Team </label>
+                  <label for="name"> Nama Service </label>
                   <input
                     type="text"
                     name="name"
                     class="form-control"
                     id="name"
-                    placeholder="Masukan nama member team"
+                    placeholder="Masukan nama Service"
                     required
                   />
                 </div>
                 <div class="form-group">
-                  <label>Role</label>
-                  <select
-                    class="form-control select2"
-                    style="width: 100%"
-                    name="role"
+                  <label>Deskripsi Service</label>
+                  <input
+                    type="text"
+                    name="description"
+                    class="form-control"
+                    id="description"
+                    placeholder="Masukan Deskripsi Service"
                     required
-                  >
-                    <option selected="selected">Pilih Jenis Role</option>
-                    <% roles.forEach(role=>{ %>
-                    <option value="<%= role._id %>"><%= role.name %></option>
-                    <% }) %>
-                  </select>
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>Deskripsi untuk Detail Page Service</label>
+                  <input
+                    type="text"
+                    name="detailDescription"
+                    class="form-control"
+                    id="detailDescription"
+                    placeholder="Masukan Deskripsi Service"
+                    required
+                  />
                 </div>
                 <div class="form-group">
                   <label for="image">Gambar</label>
@@ -75,6 +84,20 @@
                   <br />
                   <img src="" id="perview" />
                 </div>
+
+                <!-- <div class="form-group">
+                  <label for="thumbnail">Thumbnail Detail Service</label>
+                  <input
+                    type="file"
+                    name="thumbnail"
+                    class="form-control"
+                    id="thumbnail"
+                    placeholder="Masukan gambar"
+                    required
+                  />
+                  <br />
+                  <img src="" id="perview" />
+                </div> -->
               </div>
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Simpan</button>

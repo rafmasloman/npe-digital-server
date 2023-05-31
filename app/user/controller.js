@@ -49,7 +49,7 @@ const actionLogin = async (req, res) => {
     const { email, password } = req.body;
     console.log(`${email} dan ${password}`);
     if (email === 'npedigital@gmail.com') {
-      if (password === '12345678') {
+      if (password === 'Papua123') {
         req.session.user = {
           email,
           password,

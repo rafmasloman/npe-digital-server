@@ -147,7 +147,7 @@ const sendMessageEmail = async (req, res) => {
 
     const mailOptions = {
       from: email,
-      to: 'raf.learning01@gmail.com',
+      to: 'raflymasloman12@gmail.com',
       subject: `${fullname}'s order Projects`,
       text: message,
     };
